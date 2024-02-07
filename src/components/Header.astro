@@ -1,10 +1,17 @@
-<header class="flex justify-between items-center py-5 w-[1120px] mx-auto">
-    <img class="size-12 rounded-full" src="https://avatars.githubusercontent.com/u/111947705?v=4" alt="Santino Fabi photo">
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
 
-    <nav class="flex flex-row gap-x-10 opacity-80">
-        <a href="/">Inicio</a>
-        <a href="/projects">Proyectos</a>
-        <a href="/about">Sobre mí</a>
-        <a href="/contact">Contacto</a>
+<header class="flex justify-between items-center py-5 w-[1120px] mx-auto transition">
+    <a href="https://avatars.githubusercontent.com/u/111947705?v=4" target="_blank" rel="noopener noreferrer">
+        <img class="size-12 rounded-full shadow-lg" src="https://avatars.githubusercontent.com/u/111947705?v=4" alt="Santino Fabi photo">
+    </a>
+
+    <nav class="flex flex-row gap-x-5 opacity-80 items-center font-medium text-gray-800 dark:text-gray-100">
+        <a class="transition hover:text-yellow-500 dark:hover:text-yellow-400" href="/">Inicio</a>
+        <a class="transition hover:text-yellow-500 dark:hover:text-yellow-400" href="/projects">Proyectos</a>
+        <a class="transition hover:text-yellow-500 dark:hover:text-yellow-400" href="/about">Sobre mí</a>
+        <a class="transition hover:text-yellow-500 dark:hover:text-yellow-400" href="mailto:santinofabi98@gmail.com">Contacto</a>
+        <ThemeToggle />
     </nav>
 </header>
