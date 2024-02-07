@@ -1,20 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+import MailIcon from '../icons/Mail.astro';
+import GitHubIcon from '../icons/GitHub.astro';
+import LinkedInIcon from '../icons/LinkedIn.astro';
+import CvIcon from '../icons/Cv.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Porfolio de Santino Fabi - Desarrollador y Programador Web" description="Explora el portafolio de Santino Fabi, desarrollador y programador web. Descubre sus proyectos y habilidades en diseño y desarrollo web.">
 	<main>
 		<section class="w-full lg:w-[740px] mx-auto py-44">
 			<h1 class="text-wihte text-5xl font-bold flex flex-row gap-x-4 pb-10">
-				Hey, soy Santino Fabi <div class="flex justify-center items-center"><Badge>Disponible</Badge></div>
+				Hey, soy Santino<a href="https://www.linkedin.com/in/santinofabi/" target="_blank" rel="noopener" class="flex justify-center items-center"><Badge>Disponible</Badge></a>
 			</h1>
-			<h2 class="text-xl opacity-80">
-				Desarrollador Web Front End y Técnico Superior en Programación. De Villa Constitución, Provincia de Santa Fe, Argentina 🇦🇷. Especializado en crear aplicaciones únicas.
+			<h2 class="text-2xl text-wrap">
+				<span class="opacity-80"> Especializado en crear aplicaciones únicas.</span><span class="text-yellow-200/90"> Desarrollador Web Front End y Técnico Superior en Programación</span><span class="opacity-80"> de Villa Constitución, Provincia de Santa Fe, <span class="text-blue-200/90">Argentina</span> 🇦🇷.</span>
 			</h2>
 
-			<ul></ul>
+			<nav class="flex gap-x-4 mt-8">
+				<SocialPill href="https://github.com/santinofb">
+					<GitHubIcon class="size-5"/>GitHub
+				</SocialPill>
+				<SocialPill href="https://www.linkedin.com/in/santinofabi/">
+					<LinkedInIcon class="size-5"/>LinkedIn
+				</SocialPill>
+				<SocialPill href="mailto:santinofabi98@gmail.com">
+					<MailIcon class="size-5"/>santinofabi98@gmail.com
+				</SocialPill>
+				<SocialPill href="/">
+					<CvIcon class="size-5"/>Currículum
+				</SocialPill>
+			</nav>
 		</section>
 	</main>
 </Layout>
