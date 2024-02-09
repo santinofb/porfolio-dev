@@ -1,6 +1,7 @@
 ---
 import '@fontsource-variable/onest';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -29,6 +30,7 @@ const { title, description } = Astro.props;
 		</div>
 		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -44,5 +46,9 @@ const { title, description } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		height: 100vh;
+	}
+
+	#anchors {
+		@apply transition hover:text-yellow-500 dark:hover:text-yellow-400
 	}
 </style>
