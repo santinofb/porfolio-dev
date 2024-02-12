@@ -1,0 +1,111 @@
+---
+import HtmlIcon from "../icons/Html.astro";
+import CssIcon from "../icons/Css.astro";
+import JavascriptIcon from "../icons/Javascript.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import PreviewIcon from "../icons/Preview.astro";
+import LinkButton from "./LinkButton.astro";
+
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        class: "bg-[#f7b09c] dark:bg-[#5c1400] text-black dark:text-white",
+        icon: HtmlIcon,
+    },
+    CSS: {
+        name: "CSS",
+        class: "bg-[#9ccef7] dark:bg-[#003159] text-black dark:text-white",
+        icon: CssIcon,
+    },
+    JAVASCRIPT: {
+        name: "JAVASCRIPT",
+        class: "bg-[#f7ec9e] dark:bg-[#574b00] text-black dark:text-white",
+        icon: JavascriptIcon,
+    },
+};
+const PROJECTS = [
+    {
+        title: "Auto Classic - Concesionario Automotor",
+        description:
+            "Concesionario de vehículos de motor con más de 20 años de experiencia en el rubro automotor. Creado desde cero con HTML, CSS y JavaScript.",
+        link: "https://autoclassic-vc.com.ar/",
+        imageLight: "./projects/autoclassiclight.webp",
+        imageDark: "./projects/autoclassicdark.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+    },
+    {
+        title: "K A R M A - Karma Store",
+        description:
+            'Tienda de ropa en línea desarrollada como proyecto para las prácticas profesionalizantes del Instituto Técnico Superior "TecLab". Creada desde cero con HTML, CSS y JavaScript.',
+        link: "https://proyecto-teclab-vpp-2.vercel.app/",
+        github: "https://github.com/santinofb/karma-e-commerce",
+        imageLight: "/projects/karmalight.webp",
+        imageDark: "/projects/karmadark.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+    },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map(({ title, description, link, github, imageLight, imageDark, tags }) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-300 lg:hover:border-gray-200 lg:hover:bg-gray-300/50 text-black dark:lg:border-gray-800 dark:lg:hover:border-gray-700 dark:lg:hover:bg-gray-800/50 dark:text-white">
+                        <img
+                            alt="Captura de pantalla del sitio web"
+                            class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 dark:hidden"
+                            loading="lazy"
+                            src={imageLight}
+                            class="image-light"
+                        />
+                        <img
+                            alt="Captura de pantalla del sitio web"
+                            class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 hidden dark:block"
+                            loading="lazy"
+                            src={imageDark}
+                            class="image-dark"
+                        />
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 md:max-w-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 transition">
+                        {title}
+                    </h3>
+                    <div class="flex flex-wrap mt-2">
+                        <ul class="flex flex-row mb-2 gap-x-2">
+                            {tags.map((tag) => (
+                                <li>
+                                    <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 transition`}
+                                    >
+                                        <tag.icon class="size-4" />
+                                        {tag.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div class="mt-2 text-gray-700 dark:text-gray-400 text-pretty transition">{description}</div>
+                        <footer class="flex items-end justify-start mt-4 gap-x-4 transition">
+                            {github && (
+                                <LinkButton href={github}>
+                                    <GitHubIcon class="size-6" />
+                                    Código
+
+                                </LinkButton>
+                            )}
+                            {link && (
+                                <LinkButton href={link}>
+                                    <PreviewIcon class="size-4" />
+                                    Vista previa
+                                </LinkButton>
+                            )}
+                        </footer>
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+</div>

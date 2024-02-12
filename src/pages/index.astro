@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 import SectionContainer from "../components/SectionContainer.astro";
 import Hero from "../components/Hero.astro";
-import CodeIcon from "../icons/Code.astro";
+import StackIcon from "../icons/Stack.astro";
 import UserIcon from "../icons/User.astro";
 import Projects from "../components/Projects.astro";
 import AboutMe from "../components/AboutMe.astro";
@@ -13,23 +13,23 @@ import AboutMe from "../components/AboutMe.astro";
 	title="Porfolio de Santino Fabi - Desarrollador y Programador Web"
 	description="Explora el portafolio de Santino Fabi, desarrollador y programador web. Descubre sus proyectos y habilidades en diseño y desarrollo web."
 >
-	<main>
+	<main class="px-4">
 		<SectionContainer class="py-16 md:pb-36 pt-56">
 			<Hero />
 		</SectionContainer>
 
-		<SectionContainer>
+		<SectionContainer id="proyectos">
 			<h2
-				class="text-3xl font-semibold text-gray-800 dark:text-white flex flex-row gap-x-4 items-center transition"
+				class="text-3xl font-semibold text-gray-800 dark:text-white flex flex-row gap-x-4 mb-6 items-center transition"
 			>
-				<CodeIcon class="size-8" /> Proyectos
+				<StackIcon class="size-8" />Últimos proyectos
 			</h2>
 			<Projects />
 		</SectionContainer>
 
-		<SectionContainer class="mt-16">
+		<SectionContainer id="sobremi" class="mt-16 md:mt-24">
 			<h2
-				class="text-3xl font-semibold text-gray-800 dark:text-white flex flex-row gap-x-4 items-center transition"
+				class="text-3xl font-semibold text-gray-800 dark:text-white flex flex-row gap-x-4 mb-6 items-center transition"
 			>
 				<UserIcon class="size-8" />Sobre mí
 			</h2>
