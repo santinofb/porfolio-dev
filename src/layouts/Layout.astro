@@ -22,10 +22,10 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 
-	<body>
+	<body class="relative">
 		<div 
-			class="dark:absolute dark:top-0 dark:z-[-2] dark:h-screen dark:w-screen dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
-			absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] transition"
+			class="dark:absolute dark:top-0 dark:z-[-2] dark:h-full dark:w-screen dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
+			absolute top-0 z-[-2] h-full w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] transition"
 		>
 		</div>
 		<Header />
@@ -39,13 +39,15 @@ const { title, description } = Astro.props;
 	}
 	html {
 		font-family: "Onest Variable", system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
 
 	body{
 		background: #050505;
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
+		min-height: 100vh;
+		overscroll-behavior: none;
 	}
 
 	#anchors {
