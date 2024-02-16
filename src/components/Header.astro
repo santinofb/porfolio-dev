@@ -1,9 +1,15 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import MenuIcon from "../icons/Menu.astro";
+import CloseMenuIcon from "../icons/CloseMenu.astro";
 ---
 
-<header class="fixed top-0 z-10 flex justify-center md:mt-5 w-full mx-auto md:px-4 transition">
-    <div class="fondo w-full lg:max-w-[1120px] md:max-w-2xl md:rounded-full py-2 md:py-0">
+<header
+    class="fixed top-0 z-10 flex justify-center md:mt-2 w-full mx-auto md:px-4 transition"
+>
+    <div
+        class="fondo w-full lg:max-w-4xl md:max-w-2xl md:rounded-full py-2 md:py-0"
+    >
         <div class="flex justify-between items-center px-4 md:pr-2 md:pl-0">
             <a
                 href="https://avatars.githubusercontent.com/u/111947705?v=4"
@@ -17,9 +23,19 @@ import ThemeToggle from "./ThemeToggle.astro";
                 />
             </a>
 
-            <nav
-                class="flex flex-row gap-x-5 opacity-80 items-center font-medium text-gray-800 dark:text-gray-100"
+            <button
+                id="openMenu"
+                class="md:hidden text-gray-800 dark:text-gray-100"
+                ><MenuIcon class="size-8" /></button
             >
+
+            <nav
+                class="flex md:flex-row flex-col fixed md:static gap-y-10 items-end top-0 right-0 bottom-0 p-4 md:p-0 bg-white/95 dark:bg-black/95 md:bg-transparent md:dark:bg-transparent h-screen md:h-auto w-2/5 md:w-auto md:gap-x-5 md:opacity-80 opacity-0 md:items-center font-medium text-gray-800 dark:text-gray-100 shadow-[0_0_0_100vmax_rgba(0,0,0,.50)] md:shadow-none translate-x-full md:translate-x-0 transition"
+                id="nav"
+            >
+                <button id="closeMenu" class="md:hidden"
+                    ><CloseMenuIcon class="size-8" /></button
+                >
                 <a class="anchors" href="/">Inicio</a>
                 <a class="anchors" href="#proyectos">Proyectos</a>
                 <a class="anchors" href="#sobremi">Sobre mí</a>
@@ -32,7 +48,32 @@ import ThemeToggle from "./ThemeToggle.astro";
     </div>
 </header>
 
+<script>
+    const nav = document.querySelector("#nav");
+    const openMenu = document.querySelector("#openMenu");
+    const closeMenu = document.querySelector("#closeMenu");
+    const anchors = document.querySelectorAll(".anchors");
+
+    openMenu?.addEventListener("click", () => {
+        nav?.classList.add("active");
+    });
+
+    closeMenu?.addEventListener("click", () => {
+        nav?.classList.remove("active");
+    });
+
+    anchors.forEach((anchor) => {
+        anchor.addEventListener("click", () => {
+            nav?.classList.remove("active");
+        });
+    });
+</script>
+
 <style>
+    nav.active {
+        @apply translate-x-0 opacity-100;
+    }
+
     .fondo {
         animation: nav-shadown 1s linear both;
         animation-timeline: scroll();
@@ -41,7 +82,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 
     @keyframes nav-shadown {
         to {
-            @apply shadow-lg backdrop-blur bg-black/5 dark:bg-black/20;
+            @apply shadow-lg backdrop-blur bg-black/5;
         }
     }
 </style>
