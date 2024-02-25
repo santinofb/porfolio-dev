@@ -32,7 +32,7 @@ import CvIcon from "../icons/Cv.astro";
         >
     </h2>
 
-    <nav class="flex flex-wrap sm:flex-nowrap gap-2 md:gap-x-4 mt-8">
+    <nav class="flex flex-wrap max-[403px]:flex-col max-[403px]:w-fit max-[403px]:items-start sm:flex-nowrap gap-2 md:gap-x-4 mt-8">
         <SocialPill href="https://github.com/santinofb" class="order-1">
             <GitHubIcon class="size-5" />GitHub
         </SocialPill>
@@ -44,13 +44,13 @@ import CvIcon from "../icons/Cv.astro";
         </SocialPill>
         <SocialPill
             href="mailto:santinofabi98@gmail.com"
-            class="md:order-3 order-4"
+            class="sm:order-3 order-4"
         >
             <MailIcon class="size-5" />santinofabi98@gmail.com
         </SocialPill>
         <SocialPill
             href="https://cv-santino-fabi.vercel.app/"
-            class="md:order-4 order-3"
+            class="sm:order-4 order-3"
         >
             <CvIcon class="size-5" />Currículum
         </SocialPill>
