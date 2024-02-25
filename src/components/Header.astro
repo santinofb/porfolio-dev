@@ -2,6 +2,29 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import MenuIcon from "../icons/Menu.astro";
 import CloseMenuIcon from "../icons/CloseMenu.astro";
+
+const navItems = [
+    {
+        title: "Inicio",
+        label: "experiencia",
+        url: "/#inicio",
+    },
+    {
+        title: "Proyectos",
+        label: "proyectos",
+        url: "/#proyectos",
+    },
+    {
+        title: "Sobre mí",
+        label: "sobre-mi",
+        url: "/#sobremi",
+    },
+    {
+        title: "Contacto",
+        label: "contacto",
+        url: "mailto:santinofabi98@gmail.com",
+    },
+];
 ---
 
 <header
@@ -36,12 +59,17 @@ import CloseMenuIcon from "../icons/CloseMenu.astro";
                 <button id="closeMenu" class="md:hidden"
                     ><CloseMenuIcon class="size-8" /></button
                 >
-                <a class="anchors" href="#inicio">Inicio</a>
-                <a class="anchors" href="#proyectos">Proyectos</a>
-                <a class="anchors" href="#sobremi">Sobre mí</a>
-                <a class="anchors" href="mailto:santinofabi98@gmail.com"
-                    >Contacto</a
-                >
+                {
+                    navItems.map((link) => (
+                        <a
+                            class="block transition hover:text-yellow-500 dark:hover:text-yellow-400"
+                            aria-label={link.label}
+                            href={link.url}
+                        >
+                            {link.title}
+                        </a>
+                    ))
+                }
                 <ThemeToggle />
             </nav>
         </div>
